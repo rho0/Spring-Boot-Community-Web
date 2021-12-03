@@ -35,7 +35,7 @@ public class BoardController {
      * PageableDefault 어노테이션의 파라미터인 size, sort, direction 등을 사용하여 페이징 처리에 대한 규약을 정의 할 수 있다. */
     public String list(@PageableDefault Pageable pageable, Model model) {
         model.addAttribute("boardList", boardService.findBoardlist(pageable));
-        return "/board/list"; /** src/resources/templates를 기준으로 데이터를 바인딩할 타깃의 뷰 경로를 지정 */
+        return "board/list"; /** src/resources/templates를 기준으로 데이터를 바인딩할 타깃의 뷰 경로를 지정 */
     }
 
 }
