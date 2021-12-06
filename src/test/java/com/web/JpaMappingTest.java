@@ -46,7 +46,7 @@ public class JpaMappingTest {
                 .name("havi")
                 .password("test")
                 .email(email)
-                .createDate(LocalDateTime.now())
+                .createdDate(LocalDateTime.now())
                 .build()
         );
 
@@ -55,7 +55,7 @@ public class JpaMappingTest {
                 .subTitle("서브 타이틀 테스트")
                 .content("콘텐츠 테스트")
                 .boardType(BoardType.free)
-                .createDate(LocalDateTime.now())
+                .createdDate(LocalDateTime.now())
                 .updatedDate(LocalDateTime.now())
                 .user(user).build()
         );

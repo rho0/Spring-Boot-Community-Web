@@ -30,17 +30,17 @@ public class User implements Serializable {
     private String email;
 
     @Column
-    private LocalDateTime createDate;
+    private LocalDateTime createdDate;
 
     @Column
     private LocalDateTime updatedDate;
 
     @Builder
-    public User(String name, String password, String email, LocalDateTime createDate, LocalDateTime updatedDate) {
+    public User(String name, String password, String email, LocalDateTime createdDate, LocalDateTime updatedDate) {
         this.name = name;
         this.password = password;
         this.email = email;
-        this.createDate = createDate;
+        this.createdDate = createdDate;
         this.updatedDate = updatedDate;
 
     }

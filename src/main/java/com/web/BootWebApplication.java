@@ -32,7 +32,7 @@ public class BootWebApplication {
                     .name("havi")
                     .password("test")
                     .email("havi@gmail.com")
-                    .createDate(LocalDateTime.now())
+                    .createdDate(LocalDateTime.now())
                     .build());
 
             /** 페이징 처리 테스트를 위해 위와 동일하게 빌더 패턴을 사용
@@ -43,7 +43,7 @@ public class BootWebApplication {
                         .subTitle("순서"+index)
                         .content("콘텐츠 테스트")
                         .boardType(BoardType.free)
-                        .createDate(LocalDateTime.now())
+                        .createdDate(LocalDateTime.now())
                         .updatedDate(LocalDateTime.now())
                         .user(user).build())
             );
