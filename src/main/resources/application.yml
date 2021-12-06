@@ -1,0 +1,30 @@
+
+facebook :
+  client :
+    clientId : clientIdTest
+    clientSecret: clientSecretTest
+    accessTokenUri: https://graph.facebook.com/oauth/access_token
+    userAuthorizationUri: https://www.facebook.com/dialog/oauth?display=popup
+    tokenName: oauth_token
+    authenticationScheme: query
+    clientAuthentivationScheme: form
+    scope: email
+  resource:
+    usertInfoUri: https://graph.facebook.com/me?fields=id,name,email,link
+
+google :
+  client :
+    clientid: clientIdTest
+    clientSecret: clientSecretTest
+    accessTokenUri: https://account.google.com/o/oauth2/token
+    userAuthorizationUri: https://kauth.kakao.com/oauth/authorize
+resource:
+  userInfoUri: https:kapi.kakao.com/v1, user/me
+
+kakao :
+  client :
+    clientId: clientIdTest
+    accessTokenUri: https://kauth.kakao.com/oauth/token
+    userAuthorizationUri: https://kauth.kakao.com/oauth/authorize
+  resource:
+    userInfoUri: https://kapi.kakao.com/v1/user/me
