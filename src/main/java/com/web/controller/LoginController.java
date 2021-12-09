@@ -22,7 +22,7 @@ public class LoginController {
         return "login";
     }
 
-    @GetMapping(value = "/{facebook|google|kakao}/complete") //인증이 성공적으로 처리된 이후에 리다이렉트되는 경로.
+    @GetMapping(value = "/loginSuccess") //인증이 성공적으로 처리된 이후에 리다이렉트되는 경로.
     public String loginComplete(@SocialUser User user, HttpSession session){
 //        OAuth2Authentication authentication = (OAuth2Authentication) SecurityContextHolder.getContext().getAuthentication();
 //

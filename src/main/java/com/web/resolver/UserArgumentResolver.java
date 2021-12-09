@@ -10,6 +10,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.support.WebDataBinderFactory;
@@ -52,9 +53,9 @@ public class UserArgumentResolver implements HandlerMethodArgumentResolver {
     private User getUser (User user, HttpSession session) {
         if(user == null) {
             try{
-                OAuth2Authentication authentication = (OAuth2Authentication) SecurityContextHolder.getContext().getAuthentication();
-                Map<String, String> map = (HashMap<String, String>) authentication.getUserAuthentication().getDetails();
-                User convertUser = convertUser(String.valueOf(authentication.getAuthorities().toArray()[0]), map);
+                OAuth2AuthenticationToken authentication = (OAuth2AuthenticationToken) SecurityContextHolder.getContext().getAuthentication();
+                Map<String, Object> map = authentication.getPrincipal().getAttributes();
+                User convertUser = convertUser(authentication.getAuthorizedClientRegistrationId(), map);
 
                 user = userRepository.findByEmail(convertUser.getEmail());
                 if(user == null) { user = userRepository.save(convertUser); }
