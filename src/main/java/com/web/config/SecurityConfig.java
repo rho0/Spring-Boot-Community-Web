@@ -45,8 +45,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         CharacterEncodingFilter filter = new CharacterEncodingFilter();
             http
                 .authorizeRequests()
-                    .antMatchers("/", "/login/**", "/css/**", "/images/**", "/js/**", "/console/**").permitAll()
+                    .antMatchers("/", "/oauth2/**",  "/login/**", "/css/**", "/images/**", "/js/**", "/console/**").permitAll()
+                    .antMatchers("/facebook").hasAnyAuthority(FACEBOOK.getRoleType())
+                    .antMatchers("/google").hasAnyAuthority(GOOGLE.getRoleType())
+                    .antMatchers("/kakao").hasAnyAuthority(KAKAO.getRoleType())
                     .anyRequest().authenticated()
+                .and()
+                    .oauth2Login()
+                    .defaultSuccessUrl("/loginSuccess")
+                    .failureUrl("/loginFailure")
                 .and()
                     .headers().frameOptions().disable()
                 .and()

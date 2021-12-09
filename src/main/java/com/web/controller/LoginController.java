@@ -1,6 +1,7 @@
 package com.web.controller;
 
 
+import com.web.annotation.SocialUser;
 import com.web.domain.User;
 import com.web.domain.enums.SocialType;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -22,15 +23,15 @@ public class LoginController {
     }
 
     @GetMapping(value = "/{facebook|google|kakao}/complete") //인증이 성공적으로 처리된 이후에 리다이렉트되는 경로.
-    public String loginComplete(HttpSession session){
-        OAuth2Authentication authentication = (OAuth2Authentication) SecurityContextHolder.getContext().getAuthentication();
-
-        Map<String, String> map = (HashMap<String, String>)authentication.getUserAuthentication().getDetails();
-        session.setAttribute("user",  User.builder()
-                                                .name(map.get("name"))
-                                                .email(map.get("email"))
-                                                .principal(map.get("id"))
-                                                .socialType(SocialType.FACEBOOK).createdDate(LocalDateTime.now()).build());
+    public String loginComplete(@SocialUser User user, HttpSession session){
+//        OAuth2Authentication authentication = (OAuth2Authentication) SecurityContextHolder.getContext().getAuthentication();
+//
+//        Map<String, String> map = (HashMap<String, String>)authentication.getUserAuthentication().getDetails();
+//        session.setAttribute("user",  User.builder()
+//                                                .name(map.get("name"))
+//                                                .email(map.get("email"))
+//                                                .principal(map.get("id"))
+//                                                .socialType(SocialType.FACEBOOK).createdDate(LocalDateTime.now()).build());
 
         return "redirect:/board/list";
 
