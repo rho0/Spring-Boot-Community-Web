@@ -2,11 +2,160 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Board From</title>
+    <title>게시판 리스트</title>
     <link rel="stylesheet" th:href="@{/css/base.css}"/>
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-K8GV7ZC');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B6D8B72R9Y"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-B6D8B72R9Y');
+
+        gtag('config', 'UA-214949995-1');
+
+        gtag("event", "view_item", {
+            currency: "USD",
+            value: 7.77,
+            items: [
+                {
+                    item_id: "SKU_12345",
+                    item_name: "Stan and Friends Tee",
+                    affiliation: "Google Store",
+                    coupon: "SUMMER_FUN",
+                    currency: "USD",
+                    discount: 2.22,
+                    index: 5,
+                    item_brand: "Google",
+                    item_category: "Apparel",
+                    item_category2: "Adult",
+                    item_category3: "Shirts",
+                    item_category4: "Crew",
+                    item_category5: "Short sleeve",
+                    item_list_id: "related_products",
+                    item_list_name: "Related Products",
+                    item_variant: "green",
+                    location_id: "L_12345",
+                    price: 9.99,
+                    quantity: 1
+                }
+            ]
+        });
+
+        dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+        dataLayer.push({
+            event: "view_item_list",
+            ecommerce: {
+                items: [
+                    {
+                        item_name: "Triblend Android T-Shirt",       // Name or ID is required.
+                        item_id: "12345",
+                        price: 15.25,
+                        item_brand: "Google",
+                        item_category: "Apparel",
+                        item_category2: "Mens",
+                        item_category3: "Shirts",
+                        item_category4: "Tshirts",
+                        item_variant: "Gray",
+                        item_list_name: "Search Results",
+                        item_list_id: "SR123",
+                        index: 1,
+                        quantity: 1
+                    },
+                    {
+                        item_name: "Donut Friday Scented T-Shirt",
+                        item_id: "67890",
+                        price: 33.75,
+                        item_brand: "Google",
+                        item_category: "Apparel",
+                        item_category2: "Mens",
+                        item_category3: "Shirts",
+                        item_category4: "Tshirts",
+                        item_variant: "Black",
+                        item_list_name: "Search Results",
+                        item_list_id: "SR123",
+                        index: 2,
+                        quantity: 1
+                    }]
+            }
+        });
+        //
+        //
+        // dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+        // dataLayer.push({
+        //     event: "add_to_cart",
+        //     ecommerce: {
+        //         items: [{
+        //             item_name: "Donut Friday Scented T-Shirt", // Name or ID is required.
+        //             item_id: "67890",
+        //             price: "33.75",
+        //             item_brand: "Google",
+        //             item_category: "Apparel",
+        //             item_category2: "Mens",
+        //             item_category3: "Shirts",
+        //             item_category4: "Tshirts",
+        //             item_variant: "Black",
+        //             item_list_name: "Search Results",
+        //             item_list_id: "SR123",
+        //             index: 1,
+        //             quantity: 2
+        //         }]
+        //     }
+        // });
+        //
+        //
+        // dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+        // dataLayer.push({
+        //     event: "purchase",
+        //     ecommerce: {
+        //         transaction_id: "T12345",
+        //         affiliation: "Online Store",
+        //         value: 59.89,
+        //         tax: 4.90,
+        //         shipping: 5.99,
+        //         currency: "EUR",
+        //         coupon: "SUMMER_SALE",
+        //         items: [{
+        //             item_name: "Triblend Android T-Shirt",
+        //             item_id: "12345",
+        //             price: "15.25",
+        //             item_brand: "Google",
+        //             item_category: "Apparel",
+        //             item_variant: "Gray",
+        //             quantity: 1
+        //         }, {
+        //             item_name: "Donut Friday Scented T-Shirt",
+        //             item_id: "67890",
+        //             price: 33.75,
+        //             item_brand: "Google",
+        //             item_category: "Apparel",
+        //             item_variant: "Black",
+        //             quantity: 1
+        //         }]
+        //     }
+        // });
+
+    </script>
+
+
 </head>
 <body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K8GV7ZC"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
     <div th:replace="layout/header::header"></div>
 
@@ -35,8 +184,8 @@
                         <td th:text="${board.idx}"></td>
                         <td th:text="${board.boardType.value}"></td>
                         <td><a th:href="'/board?idx=' + ${board.idx}" th:text="${board.title}"></a></td>
-                        <td th:text="${#temporals.format(board.createdDate, 'yyyy-Mm-dd HH:mm')}"></td>
-                        <td th:text="${#temporals.format(board.updatedDate, 'yyyy-Mm-dd HH:mm')}"></td>
+                        <td th:text="${#temporals.format(board.createdDate, 'yyyy-MM-dd HH:mm')}"></td>
+                        <td th:text="${#temporals.format(board.updatedDate, 'yyyy-MM-dd HH:mm')}"></td>
                     </tr>
                 </tbody>
             </table>

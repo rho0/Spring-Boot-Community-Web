@@ -34,12 +34,15 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'junit:junit:4.13.1'
     implementation "org.springframework.cloud:spring-cloud-starter-openfeign"
+    implementation "com.google.apis:google-api-services-analyticsreporting:v4-rev20211020-1.32.1"
+//    implementation "com.google.apis:oogle-api-services-oauth2:v2-rev20180628-1.27.0"
 
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
-    runtimeOnly 'com.h2database:h2'
+    compileOnly 'com.h2database:h2'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    runtimeOnly 'mysql:mysql-connector-java'
 
 }
 dependencyManagement {

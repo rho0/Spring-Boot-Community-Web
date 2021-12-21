@@ -2,11 +2,41 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Board Form</title>
+    <title>게시판 폼</title>
     <link rel="stylesheet" th:href="@{/css/base.css}" />
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+
+    <!-- Google Tag Manager -->
+<!--    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':-->
+<!--            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],-->
+<!--        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=-->
+<!--        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);-->
+<!--    })(window,document,'script','dataLayer','GTM-K8GV7ZC');</script>-->
+    <!-- End Google Tag Manager -->
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B6D8B72R9Y"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-B6D8B72R9Y');
+
+        // gtag('config', 'UA-214949995-1');
+
+
+    </script>
+
 </head>
 <body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K8GV7ZC"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
 <div th:replace="layout/header::header"></div>
 
 <div class="container">
@@ -53,7 +83,7 @@
         </tr>
     </table>
     <div class="pull-left">
-        <a href="/board/list" class="btn btn-default">목록으로</a>
+        <a href="/board/list" class="btn btn-default" id="testGo">목록으로</a>
     </div>
     <div class="pull-right">
         <button th:if="!${board?.idx}" type="button" class="btn btn-primary" id="insert">저장</button>
